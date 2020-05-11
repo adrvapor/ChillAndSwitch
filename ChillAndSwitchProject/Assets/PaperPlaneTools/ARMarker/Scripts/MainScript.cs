@@ -70,11 +70,13 @@ namespace PaperPlaneTools.AR {
 		}
 
 		protected override bool ProcessTexture(WebCamTexture input, ref Texture2D output) {
-			Mat img = Unity.TextureToMat (input, TextureParameters);
-			ProcessFrame(img, img.Cols, img.Rows);
-			output = Unity.MatToTexture(img, output);
-			return true;
-		}
+            var texture = new Texture2D(input.width, input.height);
+            texture.SetPixels(input.GetPixels());
+            var img = Unity.TextureToMat(texture, Unity.TextureConversionParams.Default);
+            ProcessFrame(img, img.Cols, img.Rows);
+            output = Unity.MatToTexture(img, output);
+            return true;
+        }
 
 		private void ProcessFrame (Mat mat, int width, int height) {
 			List<int> markerIds = markerDetector.Detect (mat, width, height);
