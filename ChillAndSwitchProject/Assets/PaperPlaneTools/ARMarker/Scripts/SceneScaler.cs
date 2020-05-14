@@ -63,7 +63,7 @@
 
 			outputSurface.transform.localScale = new Vector3 (aspect, aspect, 1.0f);
 
-			AdjustFOV (imageSize);
+			//AdjustFOV (imageSize);
 		}
 
 		void AdjustFOV(Size size) {

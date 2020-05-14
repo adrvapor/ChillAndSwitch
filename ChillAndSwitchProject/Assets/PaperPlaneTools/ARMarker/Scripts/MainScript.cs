@@ -16,6 +16,8 @@ namespace PaperPlaneTools.AR {
 			public GameObject markerPrefab;
 		}
 
+        public GameObject coord;
+
 		public class MarkerOnScene
 		{
 			public int bestMatchIndex = -1;
@@ -115,7 +117,7 @@ namespace PaperPlaneTools.AR {
 			while (index >= 0) {
 				int markerIndex = foundedMarkers[index];
 				Matrix4x4 transforMatrix = markerDetector.TransfromMatrixForIndex(markerIndex);
-				Vector3 position = MatrixHelper.GetPosition(transforMatrix);
+				Vector3 position = MatrixHelper.GetPosition(transforMatrix, coord);
 
 				float minDistance = float.MaxValue;
 				int bestMatch = -1;
@@ -172,8 +174,8 @@ namespace PaperPlaneTools.AR {
 			Matrix4x4 matrixZ = Matrix4x4.TRS (Vector3.zero, Quaternion.identity, new Vector3 (1, 1, -1));
 			Matrix4x4 matrix = matrixY * transformMatrix * matrixZ;
 
-			gameObject.transform.localPosition = MatrixHelper.GetPosition (matrix);
-			gameObject.transform.localRotation = MatrixHelper.GetQuaternion (matrix);
+			gameObject.transform.localPosition = MatrixHelper.GetPosition (matrix, coord);
+			gameObject.transform.localRotation = MatrixHelper.GetQuaternion (matrix, coord);
 			gameObject.transform.localScale = MatrixHelper.GetScale (matrix);
 		}
 	}
