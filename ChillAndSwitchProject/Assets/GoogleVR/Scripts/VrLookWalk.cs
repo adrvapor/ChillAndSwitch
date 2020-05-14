@@ -18,19 +18,14 @@ public class VrLookWalk : MonoBehaviour
 
     void Update()
     {
-        if(vrCamera.eulerAngles.x >= toggleAngle && vrCamera.eulerAngles.x < 90.0f)
-        {
-            moveForward = true;
-        }
-        else
-        {
-            moveForward = false;
-        }
+        moveForward = vrCamera.eulerAngles.x >= toggleAngle && vrCamera.eulerAngles.x < 90.0f;
+
         if (moveForward)
         {
             Vector3 forward = vrCamera.TransformDirection(Vector3.forward);
 
-            cc.SimpleMove(forward * speed);
+            float acceleration = (vrCamera.eulerAngles.x - toggleAngle) / 10;
+            cc.SimpleMove(forward * speed * acceleration);
         }
 
     }
