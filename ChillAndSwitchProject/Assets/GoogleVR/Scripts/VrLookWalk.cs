@@ -8,6 +8,7 @@ public class VrLookWalk : MonoBehaviour
     public float toggleAngle = 30.0f;
     public float speed = 2.0f;
     public bool moveForward;
+    public GameObject jugador;
 
     private CharacterController cc;
 
