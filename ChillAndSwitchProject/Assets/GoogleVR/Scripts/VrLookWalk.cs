@@ -8,6 +8,7 @@ public class VrLookWalk : MonoBehaviour
     public float toggleAngle = 30.0f;
     public float speed = 2.0f;
     public bool moveForward;
+    public GameObject jugador;
 
     private CharacterController cc;
 
@@ -19,6 +20,7 @@ public class VrLookWalk : MonoBehaviour
     void Update()
     {
         moveForward = vrCamera.eulerAngles.x >= toggleAngle && vrCamera.eulerAngles.x < 90.0f;
+        Debug.Log(vrCamera.eulerAngles.x);
 
         if (moveForward)
         {
