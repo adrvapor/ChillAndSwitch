@@ -1,0 +1,53 @@
+# Blender MTL File: 'None'
+# Material Count: 5
+
+newmtl BottleUra_BottleUra.png
+Ns 94.117647
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.050000
+illum 2
+map_Kd BottleUra.png
+
+newmtl Bottle_Bottle.png
+Ns 94.117647
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.050000
+illum 2
+map_Kd Bottle.png
+
+newmtl BottoleCork_BottoleCork.png
+Ns 94.117647
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd BottoleCork.png
+
+newmtl None
+Ns 0
+Ka 0.000000 0.000000 0.000000
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
+d 1
+illum 2
+map_Kd BottleFairy_wing.png
+
+newmtl None_BottleFairy_body.png
+Ns 0
+Ka 0.000000 0.000000 0.000000
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
+d 1
+illum 2
+map_Kd BottleFairy_body.png
