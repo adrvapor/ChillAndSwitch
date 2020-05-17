@@ -36,18 +36,18 @@ public class GazeInteraction : MonoBehaviour {
     public void PointerEnter()
     {
         gazedAt = true;
-        Debug.Log("PointerEnter");
+        //Debug.Log("PointerEnter");
     }
 
     public void PointerExit()
     {
         gazedAt = false;
         timer = 0f;
-        Debug.Log("PointerExit");
+        //Debug.Log("PointerExit");
     }
 
     public void PointerDown()
     {
-        Debug.Log("PointerDown");
+        //Debug.Log("PointerDown");
     }
 }
