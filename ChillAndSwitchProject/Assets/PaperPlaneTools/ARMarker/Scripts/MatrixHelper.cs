@@ -9,9 +9,11 @@
 			Vector3 upwards = new Vector3 (matrix.m01, matrix.m11, matrix.m21);
             Quaternion lookRot = Quaternion.LookRotation(forward, upwards);
 
+            Quaternion result = Quaternion.Euler(new Vector3(-lookRot.eulerAngles.x, lookRot.eulerAngles.y, -lookRot.eulerAngles.z));
+
             //Quaternion result = Quaternion.Euler(lookRot.eulerAngles + coord.transform.rotation.eulerAngles);
-            
-            return lookRot;
+
+            return result;
 		}
 
 		public static Vector3 GetPosition(Matrix4x4 matrix, GameObject coord) {

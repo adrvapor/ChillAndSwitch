@@ -206,10 +206,10 @@ namespace Sigtrap.VrTunnellingPro {
 		#region Lifecycle
 		protected override void Awake(){
 			base.Awake();
-
-			if (instance != null){
-				Debug.LogWarning("More than one VrTunnellingPro instance detected - tunnelling will work properly but singleton instance may not be the one you expect.");
-			}
+            // Esto es necesario, deja de hacer comprobaciones inútiles y reventarme el debug
+			//if (instance != null){
+			//	Debug.LogWarning("More than one VrTunnellingPro instance detected - tunnelling will work properly but singleton instance may not be the one you expect.");
+			//}
 			instance = this;
 
 			_irisMesh = Instantiate<Mesh>(Resources.Load<Mesh>(PATH_MESHES + PATH_IRISMESH));

@@ -77,6 +77,10 @@ namespace PaperPlaneTools.AR {
             var img = Unity.TextureToMat(texture, Unity.TextureConversionParams.Default);
             ProcessFrame(img, img.Cols, img.Rows);
             output = Unity.MatToTexture(img, output);
+
+            // Esto es necesario, si no nunca destruimos las imagenes captadas por la webcam, y se acumula en memoria y produce ralentizaciones
+            Destroy(texture);
+
             return true;
         }
 
@@ -162,9 +166,8 @@ namespace PaperPlaneTools.AR {
 
                 // Cosas nuevas
                 gameObject.transform.SetParent(coord.transform);
-                gameObject.transform.localScale.Set(markerObject.markerPrefab.transform.localScale.x, markerObject.markerPrefab.transform.localScale.y, markerObject.markerPrefab.transform.localScale.z);
-                gameObject.transform.localRotation.eulerAngles.Set(markerObject.markerPrefab.transform.rotation.eulerAngles.x, markerObject.markerPrefab.transform.rotation.eulerAngles.y, markerObject.markerPrefab.transform.rotation.eulerAngles.z);
-				MarkerOnScene markerOnScene = new MarkerOnScene() {
+
+                MarkerOnScene markerOnScene = new MarkerOnScene() {
 					gameObject = gameObject
 				};
 				gameObjects.Add(markerOnScene);
@@ -181,7 +184,7 @@ namespace PaperPlaneTools.AR {
 
 			gameObject.transform.localPosition = MatrixHelper.GetPosition (matrix, coord);
 			gameObject.transform.localRotation = MatrixHelper.GetQuaternion (matrix, coord);
-			//gameObject.transform.localScale = MatrixHelper.GetScale (matrix);
+			gameObject.transform.localScale = MatrixHelper.GetScale (matrix);
 		}
 	}
 }

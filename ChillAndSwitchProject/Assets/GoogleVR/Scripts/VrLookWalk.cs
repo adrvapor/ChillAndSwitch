@@ -20,7 +20,6 @@ public class VrLookWalk : MonoBehaviour
     void Update()
     {
         moveForward = vrCamera.eulerAngles.x >= toggleAngle && vrCamera.eulerAngles.x < 90.0f;
-        Debug.Log(vrCamera.eulerAngles.x);
 
         if (moveForward)
         {
