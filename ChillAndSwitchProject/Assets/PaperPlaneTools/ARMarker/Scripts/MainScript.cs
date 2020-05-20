@@ -14,6 +14,7 @@ namespace PaperPlaneTools.AR {
 		{
 			public int markerId;
 			public GameObject markerPrefab;
+            
 		}
 
         public GameObject coord;
@@ -51,8 +52,12 @@ namespace PaperPlaneTools.AR {
 
 		}
 
+        private void OnDisable()
+        {
+            webCamTexture.Stop();
+        }
 
-		protected override void Awake() {
+        protected override void Awake() {
 			int cameraIndex = -1;
 			for (int i = 0; i < WebCamTexture.devices.Length; i++) {
 				WebCamDevice webCamDevice = WebCamTexture.devices [i];
@@ -142,7 +147,6 @@ namespace PaperPlaneTools.AR {
 				} 
 				--index;
 			}
-
 			//Destroy excessive objects
 			index = gameObjects.Count - 1;
 			while (index >= 0) {
